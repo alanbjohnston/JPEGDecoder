@@ -959,7 +959,7 @@ static uint8 init(void)
 
    getBits1(8);
    
-   int i = getBits1(8);
+   static PJPG_INLINE uint16 i = getBits1(8);
 
    return 0;
 }
