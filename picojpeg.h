@@ -11,7 +11,7 @@ extern "C" {
 // Error codes
 enum
 {
-   PJPG_NO_MORE_BLOCKS = 1,
+   PJPG_NO_MORE_BLOCKS = 2,  // was 1
    PJPG_BAD_DHT_COUNTS,
    PJPG_BAD_DHT_INDEX,
    PJPG_BAD_DHT_MARKER,
