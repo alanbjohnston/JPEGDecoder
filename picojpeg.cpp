@@ -2262,7 +2262,7 @@ unsigned char pjpeg_decode_mcu(void)
       return gCallbackStatus;
    
    if (!gNumMCUSRemaining)
-      return PJPG_NO_MORE_BLOCKS;
+      return 0; // PJPG_NO_MORE_BLOCKS;
       
    status = decodeNextMCU();
    if ((status) || (gCallbackStatus))
