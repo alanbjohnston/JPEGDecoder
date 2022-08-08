@@ -2294,14 +2294,17 @@ unsigned char pjpeg_decode_init(pjpeg_image_info_t *pInfo, pjpeg_need_bytes_call
    }
    status = locateSOFMarker();
    if ((status) || (gCallbackStatus)) {
-      return gCallbackStatus ? gCallbackStatus : status;
+      return 100;
+//      return gCallbackStatus ? gCallbackStatus : status;
    }
    status = initFrame();
    if ((status) || (gCallbackStatus)) {
-      return gCallbackStatus ? gCallbackStatus : status;
+      return 101;
+//      return gCallbackStatus ? gCallbackStatus : status;
    }
    status = initScan();
    if ((status) || (gCallbackStatus)) {
+      return 102;
       return gCallbackStatus ? gCallbackStatus : status;
    }
    pInfo->m_width = gImageXSize; pInfo->m_height = gImageYSize; pInfo->m_comps = gCompsInFrame;
