@@ -9,6 +9,7 @@
 #include <LittleFS.h>
 #include "JPEGDecoder.h"
 #include "picojpeg.h"
+#define DEBUG
 
 
 JPEGDecoder JpegDec;
@@ -58,12 +59,15 @@ int JPEGDecoder::decode(char* pFilename, unsigned char pReduce){
     
  //   g_pInFile = SD.open(pFilename, FILE_READ);
     g_pInFile = LittleFS.open(pFilename, "r");
-    if (!g_pInFile)
+    if (!g_pInFile) {
+        Serial.println("Error opening file!");
         return -1;
-
+    }
     g_nInFileOfs = 0;
 
     g_nInFileSize = g_pInFile.size();
+    Serial.print("file size: ");
+    Serial.println(g_nInFileSize);
         
     status = pjpeg_decode_init(&image_info, pjpeg_callback, NULL, (unsigned char)reduce);
             
