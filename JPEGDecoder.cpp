@@ -5,7 +5,8 @@
  Public domain, Makoto Kurauchi <http://yushakobo.jp>
 */
 
-#include <SD.h>
+//#include <SD.h>
+#include <LittleFS.h>
 #include "JPEGDecoder.h"
 #include "picojpeg.h"
 
@@ -53,7 +54,8 @@ int JPEGDecoder::decode(char* pFilename, unsigned char pReduce){
     
     if(pReduce) reduce = pReduce;
     
-    g_pInFile = SD.open(pFilename, FILE_READ);
+ //   g_pInFile = SD.open(pFilename, FILE_READ);
+    g_pInFile = LittleFS.open(pFilename, FILE_READ);
     if (!g_pInFile)
         return -1;
 
