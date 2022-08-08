@@ -959,9 +959,7 @@ static uint8 init(void)
 
    getBits1(8);
    
-//   return 0;
-   
-   (void)getBits1(8);
+   int i = getBits1(8);
 
    return 0;
 }
