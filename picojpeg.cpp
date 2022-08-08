@@ -2290,7 +2290,8 @@ unsigned char pjpeg_decode_init(pjpeg_image_info_t *pInfo, pjpeg_need_bytes_call
     
    status = init();
    if ((status) || (gCallbackStatus)) {
-      return gCallbackStatus ? gCallbackStatus : status;
+      return 99;
+//      return gCallbackStatus ? gCallbackStatus : status;
    }
    status = locateSOFMarker();
    if ((status) || (gCallbackStatus)) {
