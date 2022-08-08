@@ -956,12 +956,12 @@ static uint8 init(void)
    gInBufLeft = 0;
    gBitBuf = 0;
    gBitsLeft = 8;
-   
-   return 0;
-   
 
    getBits1(8);
    getBits1(8);
+   
+   return 0;
+   
 
    return 0;
 }
