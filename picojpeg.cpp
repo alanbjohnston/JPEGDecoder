@@ -5,7 +5,6 @@
 // Also integrated and tested changes from Chris Phoenix <cphoenix@gmail.com>.
 //------------------------------------------------------------------------------
 #include "picojpeg.h"
-#include <Arduino.h>
 //------------------------------------------------------------------------------
 // Set to 1 if right shifts on signed ints are always unsigned (logical) shifts
 // When 1, arithmetic right shifts will be emulated by using a logical shift
@@ -2289,25 +2288,20 @@ unsigned char pjpeg_decode_init(pjpeg_image_info_t *pInfo, pjpeg_need_bytes_call
    gCallbackStatus = 0;
    gReduce = reduce;
     
-   Serial.begin(115200);
    status = init();
    if ((status) || (gCallbackStatus)) {
-      Serial.println("Error 1");
       return gCallbackStatus ? gCallbackStatus : status;
    }
    status = locateSOFMarker();
    if ((status) || (gCallbackStatus)) {
-      Serial.println("Error 2");
       return gCallbackStatus ? gCallbackStatus : status;
    }
    status = initFrame();
    if ((status) || (gCallbackStatus)) {
-      Serial.println("Error 3");
       return gCallbackStatus ? gCallbackStatus : status;
    }
    status = initScan();
    if ((status) || (gCallbackStatus)) {
-      Serial.println("Error 4");
       return gCallbackStatus ? gCallbackStatus : status;
    }
    pInfo->m_width = gImageXSize; pInfo->m_height = gImageYSize; pInfo->m_comps = gCompsInFrame;
