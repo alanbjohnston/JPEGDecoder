@@ -944,6 +944,8 @@ static uint8 locateSOSMarker(uint8* pFoundEOI)
 //------------------------------------------------------------------------------
 static uint8 init(void)
 {
+   return 0;
+   
    gImageXSize = 0;
    gImageYSize = 0;
    gCompsInFrame = 0;
