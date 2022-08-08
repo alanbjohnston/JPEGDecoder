@@ -31,6 +31,8 @@ unsigned char JPEGDecoder::pjpeg_callback(unsigned char* pBuf, unsigned char buf
 {
     JPEGDecoder *thisPtr = JpegDec.thisPtr ;
     thisPtr->pjpeg_need_bytes_callback(pBuf, buf_size, pBytes_actually_read, pCallback_data);
+ 
+    return(1); // needed to prevent compiler error
 }
 
 
@@ -55,7 +57,7 @@ int JPEGDecoder::decode(char* pFilename, unsigned char pReduce){
     if(pReduce) reduce = pReduce;
     
  //   g_pInFile = SD.open(pFilename, FILE_READ);
-    g_pInFile = LittleFS.open(pFilename, FILE_READ);
+    g_pInFile = LittleFS.open(pFilename, "r");
     if (!g_pInFile)
         return -1;
 
