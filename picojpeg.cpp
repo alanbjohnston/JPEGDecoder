@@ -958,10 +958,10 @@ static uint8 init(void)
    gBitsLeft = 8;
 
    getBits1(8);
-   getBits1(8);
    
    return 0;
    
+   getBits1(8);
 
    return 0;
 }
